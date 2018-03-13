@@ -20,13 +20,18 @@ import Starscream
 internal class SpeechToTextSocket: WebSocketDelegate {
 
     private(set) internal var results = SpeechRecognitionResults()
-    private(set) internal var state: SpeechToTextState = .disconnected
+    private(set) internal var state: SpeechToTextState = .disconnected {
+        didSet {
+            onStateChange?(state)
+        }
+    }
 
     internal var onConnect: (() -> Void)?
     internal var onListening: (() -> Void)?
     internal var onResults: ((SpeechRecognitionResults) -> Void)?
     internal var onError: ((Error) -> Void)?
     internal var onDisconnect: (() -> Void)?
+    internal var onStateChange: ((SpeechToTextState) -> Void)?
 
     private let url: URL
     private let restToken: RestToken

@@ -77,6 +77,12 @@ public class SpeechToTextSession {
         get { return socket.onError }
         set { socket.onError = newValue }
     }
+    
+    /// Invoked when the session state changes.
+    public var onStateChange: ((SpeechToTextState) -> Void)? {
+        get { return socket.onStateChange }
+        set { socket.onStateChange = newValue }
+    }
 
     /// Invoked when the session disconnects from the Speech to Text service.
     public var onDisconnect: (() -> Void)?

@@ -17,7 +17,7 @@
 import Foundation
 
 /** The state of a `SpeechToTextSession`. */
-internal enum SpeechToTextState {
+public enum SpeechToTextState {
 
     /// The session is connecting to the Speech to Text service.
     case connecting
