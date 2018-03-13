@@ -77,7 +77,7 @@ public class SpeechToTextSession {
         get { return socket.onError }
         set { socket.onError = newValue }
     }
-    
+
     /// Invoked when the session state changes.
     public var onStateChange: ((SpeechToTextState) -> Void)? {
         get { return socket.onStateChange }
